@@ -9,9 +9,8 @@ import lombok.RequiredArgsConstructor;
 @Entity
 @Table(name = "users")
 @Data
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
-@RequiredArgsConstructor
 public class User {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;

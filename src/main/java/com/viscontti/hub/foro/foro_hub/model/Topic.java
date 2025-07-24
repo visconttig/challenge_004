@@ -12,9 +12,9 @@ import java.util.List;
 @Entity
 @Table(name = "topics")
 @Data
-@RequiredArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@NoArgsConstructor
 public class Topic {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
@@ -27,6 +27,6 @@ public class Topic {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
-    @OneToMany
+    @OneToMany(mappedBy = "topic")
     private List<Answer> answersList;
 }

@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "topics")
 @Data
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 public class Topic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

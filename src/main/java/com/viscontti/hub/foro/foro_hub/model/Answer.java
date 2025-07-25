@@ -1,6 +1,7 @@
 package com.viscontti.hub.foro.foro_hub.model;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +10,7 @@ import java.util.Date;
 @Entity
 @Table(name = "answers")
 @Data
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "topics")
 @Data
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Topic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

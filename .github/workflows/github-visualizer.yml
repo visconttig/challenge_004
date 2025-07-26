@@ -1,0 +1,19 @@
+name: Github Visualizer
+on: [push, workflow_dispatch]
+
+jobs:
+  BuildDiagram:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Create Output Directory
+        run: mkdir -p images
+
+      - name: Build Diagram
+        uses: githubocto/repo-visualizer@0.7.1
+        with:
+          output_file: "images/diagram.svg"
+          excluded_paths: "dist,node_modules"

@@ -36,4 +36,11 @@ public class TopicController {
         return ResponseEntity.ok(new TopicDTO(savedTopic));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity getTopicById(@PathVariable Long id){
+        Topic topic = topicService.findById(id).orElseThrow(() -> new RuntimeException("Topic not found."));
+        return ResponseEntity.ok(new TopicDTO(topic));
+    }
+
+
 }

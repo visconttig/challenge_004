@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -40,6 +41,12 @@ public class TopicController {
     public ResponseEntity getTopicById(@PathVariable Long id){
         Topic topic = topicService.findById(id).orElseThrow(() -> new RuntimeException("Topic not found."));
         return ResponseEntity.ok(new TopicDTO(topic));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteTopicById(@PathVariable Long id){
+        topicService.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
 

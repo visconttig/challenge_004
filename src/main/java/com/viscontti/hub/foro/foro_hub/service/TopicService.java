@@ -52,4 +52,11 @@ public class TopicService {
     public Optional<Topic> findById(Long id) {
         return topicRepository.findById(id);
     }
+
+    public void deleteById(Long id){
+        Topic topic = findById(id).orElseThrow(() -> new RuntimeException("Topic not found."));
+        if(topic != null){
+            topicRepository.deleteById(id);
+        }
+    }
 }

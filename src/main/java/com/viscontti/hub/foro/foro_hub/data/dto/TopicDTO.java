@@ -20,16 +20,16 @@ public record TopicDTO(
         List<Answer> answersList
 ) {
 
-    public TopicDTO(Topic t) {
+    public TopicDTO(Topic topic) {
         this(
-                t.getId(),
-        t.getTitle(),
-        t.getMessage(),
-        t.getCreatedDate(),
-        t.getStatus(),
-        t.getAuthor(),
-        t.getCourse(),
-        t.getAnswersList()
+                topic.getId(),
+        topic.getTitle(),
+        topic.getMessage(),
+        topic.getCreatedDate(),
+        topic.getStatus(),
+        topic.getAuthor(),
+        topic.getCourse(),
+        topic.getAnswersList()
 );
     }
 }

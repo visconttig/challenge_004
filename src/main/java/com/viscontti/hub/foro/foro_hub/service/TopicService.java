@@ -59,4 +59,11 @@ public class TopicService {
             topicRepository.deleteById(id);
         }
     }
+
+    public void updateById(Long id){
+    }
+
+    public Topic getReferenceById(Long id) {
+        return topicRepository.getReferenceById(id);
+    }
 }

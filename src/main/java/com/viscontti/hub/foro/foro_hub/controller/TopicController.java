@@ -2,6 +2,7 @@ package com.viscontti.hub.foro.foro_hub.controller;
 
 import com.viscontti.hub.foro.foro_hub.data.dto.TopicDTO;
 import com.viscontti.hub.foro.foro_hub.data.dto.TopicRegisterData;
+import com.viscontti.hub.foro.foro_hub.data.dto.UpdateTopicData;
 import com.viscontti.hub.foro.foro_hub.model.Topic;
 import com.viscontti.hub.foro.foro_hub.service.TopicService;
 import jakarta.transaction.Transactional;
@@ -44,10 +45,18 @@ public class TopicController {
     }
 
     @DeleteMapping("/{id}")
+    @Transactional
     public ResponseEntity deleteTopicById(@PathVariable Long id){
         topicService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 
+    @PutMapping
+    @Transactional
+    public ResponseEntity updateTopicById(@RequestBody @Valid UpdateTopicData updateData){
+        Topic topic = topicService.getReferenceById(updateData.id());
+        topic.updateInfo(updateData);
 
+        return ResponseEntity.ok(new TopicDTO(topic));
+    }
 }

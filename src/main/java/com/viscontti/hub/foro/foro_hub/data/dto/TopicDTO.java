@@ -4,7 +4,6 @@ import com.viscontti.hub.foro.foro_hub.model.Answer;
 import com.viscontti.hub.foro.foro_hub.model.Course;
 import com.viscontti.hub.foro.foro_hub.model.Topic;
 import com.viscontti.hub.foro.foro_hub.model.User;
-import jakarta.validation.constraints.NotNull;
 
 import java.util.Date;
 import java.util.List;

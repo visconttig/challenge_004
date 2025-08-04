@@ -1,10 +1,9 @@
 package com.viscontti.hub.foro.foro_hub.model;
 
 import com.viscontti.hub.foro.foro_hub.data.dto.TopicDTO;
-import com.viscontti.hub.foro.foro_hub.data.dto.TopicRegisterData;
+import com.viscontti.hub.foro.foro_hub.data.dto.UpdateTopicData;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -48,5 +47,19 @@ public class Topic {
            this.course = topicDTO.course();
        }
 
+    }
+
+    public void updateInfo(@Valid UpdateTopicData data){
+        if(data.title() != null){
+            this.title = data.title();
+        }
+
+        if(data.message() != null){
+            this.message = data.message();
+        }
+
+        if(data.author() != null){
+            this.author.updateAuthor(data.author());
+        }
     }
 }

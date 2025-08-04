@@ -1,7 +1,7 @@
 package com.viscontti.hub.foro.foro_hub.model;
 
+import com.viscontti.hub.foro.foro_hub.data.dto.UserData;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,4 +18,10 @@ public class User {
     @OneToOne
     @JoinColumn(name = "profile_id")
     private Profile profile;
+
+    public void updateAuthor(UserData data) {
+        if(data.name() != null){
+            this.name = data.name();
+        }
+    }
 }

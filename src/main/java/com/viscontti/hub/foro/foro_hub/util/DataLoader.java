@@ -2,10 +2,10 @@ package com.viscontti.hub.foro.foro_hub.util;
 
 import com.viscontti.hub.foro.foro_hub.data.repository.CourseRepository;
 import com.viscontti.hub.foro.foro_hub.data.repository.TopicRepository;
-import com.viscontti.hub.foro.foro_hub.data.repository.UserRepository;
+import com.viscontti.hub.foro.foro_hub.data.repository.AuthorRepository;
 import com.viscontti.hub.foro.foro_hub.model.Course;
 import com.viscontti.hub.foro.foro_hub.model.Topic;
-import com.viscontti.hub.foro.foro_hub.model.User;
+import com.viscontti.hub.foro.foro_hub.model.Author;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,14 +17,14 @@ public class DataLoader {
 
     @Bean
     CommandLineRunner loadData(TopicRepository topicRepo,
-                               UserRepository userRepo,
+                               AuthorRepository userRepo,
                                CourseRepository courseRepo) {
         return args -> {
             // Create a test user
-            User user = new User();
-            user.setName("Jane Doe");
-            user.setPassword("test123");
-            userRepo.save(user);
+            Author author = new Author();
+            author.setName("Jane Doe");
+            author.setPassword("test123");
+            userRepo.save(author);
 
             // Create a test course
             Course course = new Course();
@@ -39,7 +39,7 @@ public class DataLoader {
                 topic.setMessage("This is the content of topic " + i);
                 topic.setCreatedDate(new Date());
                 topic.setStatus("OPEN");
-                topic.setAuthor(user);
+                topic.setAuthor(author);
                 topic.setCourse(course);
                 topic.setAnswersList(new ArrayList<>());
                 topicRepo.save(topic);

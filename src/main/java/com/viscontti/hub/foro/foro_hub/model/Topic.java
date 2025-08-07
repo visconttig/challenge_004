@@ -26,7 +26,7 @@ public class Topic {
     private String status;
     @ManyToOne
     @JoinColumn(name = "author_id")
-    private User author;
+    private Author author;
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;

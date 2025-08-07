@@ -3,7 +3,7 @@ package com.viscontti.hub.foro.foro_hub.data.dto;
 import com.viscontti.hub.foro.foro_hub.model.Answer;
 import com.viscontti.hub.foro.foro_hub.model.Course;
 import com.viscontti.hub.foro.foro_hub.model.Topic;
-import com.viscontti.hub.foro.foro_hub.model.User;
+import com.viscontti.hub.foro.foro_hub.model.Author;
 
 import java.util.Date;
 import java.util.List;
@@ -14,7 +14,7 @@ public record TopicDTO(
         String message,
         Date createdDate,
         String status,
-        User author,
+        Author author,
         Course course,
         List<Answer> answersList
 ) {
